@@ -1,0 +1,33 @@
+﻿@page "/Saludo"
+@rendermode InteractiveServer
+
+<PageTitle>Saludo</PageTitle>
+
+<label>Nombre</label>
+<br />
+<input placeholder="Ingrese su nombre" id="name" @bind="nombre" />
+<button style="background-color:rebeccapurple; color:white" @onclick="saludaNombre" type="submit">Saludame</button>
+<label>@resultado</label>
+<label style="color:red">@error</label>
+
+@code{
+    string nombre;
+
+    string resultado = "";
+    string error = "";
+
+    public void saludaNombre()
+    {
+        if(!String.IsNullOrEmpty(nombre))
+        {
+            resultado = "Hola, " + nombre;
+            error = "";
+        }
+        else
+        {
+            error = "La casilla no puede estar vacía";
+            resultado = "";
+        }
+
+    }
+}
