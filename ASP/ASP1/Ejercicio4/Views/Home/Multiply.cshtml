@@ -9,7 +9,7 @@
         @for (int j = 1; j < 11; j++)
             {
                 <td style="border:double,black">
-                    <p style="text-align:center; font-family:Consolas; padding:5px">@i * @j = @Resultado(i, j)</p>
+                    <p style="text-align:center; font-family:Consolas; padding:5px">@i * @j = @(i * j)</p>
                 </td>
             }
         </tr>
@@ -17,10 +17,3 @@
     
     
 </table>
-@functions {
-    int Resultado(int i, int j)
-    {
-        return i * j;
-        
-    }
-}

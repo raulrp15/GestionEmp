@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@{
+    string format = "hh:mm";
+    var now = DateTime.Now.ToString(format);
+    string texto = "";
+    if(DateTime.Now.Hour > 12)
+    {
+        texto = "Se han pasado las 12 del mediodia";
+    }
+    else if(DateTime.Now.Hour < 12){
+        texto = "No se han pasado las 12 del mediodia";
+    }
+    else
+    {
+        texto = "Son las 12 del mediodia";
+    }
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <p>Hola son las @now</p>
+    <p>@texto</p>
+</div>
