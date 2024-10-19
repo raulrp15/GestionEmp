@@ -1,0 +1,19 @@
+﻿<table>
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Edad</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var persona in Model.lista)
+        {
+            <tr>
+                <td>persona.Nombre</td>
+                <td>persona.Apellido</td>
+                <td>persona.Edad</td>
+            </tr>
+        }
+    </tbody>
+</table>

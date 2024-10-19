@@ -1,4 +1,5 @@
 using Ejercicio01.Models;
+using Ejercicio01.Models.DAL;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -31,9 +32,9 @@ namespace Ejercicio01.Controllers
             }
 
             ClsPersona persona = new ClsPersona();
-            persona.nombre = "Raúl";
-            persona.apellidos = "Romera Pavón";
-            persona.edad = 19;
+            persona.Nombre = "Raúl";
+            persona.Apellidos = "Romera Pavón";
+            persona.Edad = 19;
             return View(persona);
         }
 
@@ -46,6 +47,12 @@ namespace Ejercicio01.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        public IActionResult ListadoPersonas()
+        {
+            ClsListado lista = new();
+            return View();
         }
     }
 }

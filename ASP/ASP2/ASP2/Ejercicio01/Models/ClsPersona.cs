@@ -1,10 +1,11 @@
-﻿namespace BibliotecaDeClases
+﻿namespace Ejercicio01.Models
 {
     public class ClsPersona
     {
-        public string nombre {  get; set; }
-        public string apellidos { get; set; }
-        public int edad { get; set; }
-
+        #region Propiedades
+        public string Nombre { get; set; }
+        public string Apellidos { get; set; }
+        public int Edad { get; set; }
+        #endregion
     }
 }
