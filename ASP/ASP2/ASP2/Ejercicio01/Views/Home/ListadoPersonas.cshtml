@@ -1,18 +1,20 @@
-﻿<table>
+﻿@model List<Ejercicio01.Models.ClsPersona>
+
+<table border="1">
     <thead>
-        <tr>
+        <tr border="1px">
             <th>Nombre</th>
             <th>Apellidos</th>
             <th>Edad</th>
         </tr>
     </thead>
     <tbody>
-        @foreach(var persona in Model.lista)
+        @foreach(var persona in Model)
         {
-            <tr>
-                <td>persona.Nombre</td>
-                <td>persona.Apellido</td>
-                <td>persona.Edad</td>
+            <tr style="padding:20px; align-content:center" border="1px">
+                <td>@persona.Nombre</td>
+                <td>@persona.Apellidos</td>
+                <td>@persona.Edad</td>
             </tr>
         }
     </tbody>

@@ -51,7 +51,12 @@ namespace Ejercicio01.Controllers
 
         public IActionResult ListadoPersonas()
         {
-            ClsListado lista = new();
+            List<ClsPersona> personas = ClsListado.GetListado();
+            return View(personas);
+        }
+
+        public IActionResult Persona3()
+        {
             return View();
         }
     }
