@@ -1,8 +1,12 @@
-﻿using Ejercicio01.Models;
+﻿using Ejercicio01.Models.ENT;
 namespace Ejercicio01.Models.DAL
 {
     public class ClsListado
     {
+        /// <summary>
+        /// Funcion que devuelve una lista de personas
+        /// </summary>
+        /// <returns>Listado de personas</returns>
         public static List<ClsPersona> GetListado()
         {
             List<ClsPersona> listado = new List<ClsPersona>

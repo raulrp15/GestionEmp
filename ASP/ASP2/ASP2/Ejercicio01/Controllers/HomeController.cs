@@ -1,5 +1,6 @@
 using Ejercicio01.Models;
 using Ejercicio01.Models.DAL;
+using Ejercicio01.Models.ENT;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -51,13 +52,21 @@ namespace Ejercicio01.Controllers
 
         public IActionResult ListadoPersonas()
         {
-            List<ClsPersona> personas = ClsListado.GetListado();
-            return View(personas);
+            try
+            {
+                List<ClsPersona> personas = ClsListado.GetListado();
+                return View(personas);
+            }catch(Exception e)
+            {
+                return View("ErrorExcepcion");
+            }
+            
         }
 
         public IActionResult Persona3()
         {
             return View();
         }
+
     }
 }

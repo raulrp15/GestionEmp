@@ -3,5 +3,5 @@
     <p>@ViewBag.Fecha</p>
     <p>@ViewData["Saludo"]</p>
     <p>@(Model.Nombre + ' ' + Model.Apellidos)</p>
-    <a href="/home/listadopersonas">Tabla de personas</a>
+    @Html.ActionLink("Tabla de personas", "ListadoPersonas")
 </div>
