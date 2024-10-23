@@ -1,0 +1,22 @@
+ENT:
+ ClsPersona
+  + string Nombre {get, set;}
+  + string Apellidos {get; set;}
+  + int Edad {get; set;}
+  + int IdDepartamento {get; set;}
+
+ ClsDepartamento
+  + int idDepartamento {get; set;}
+  + string nombre {get; set;}
+
+DAL:
+ ClsListado:
+ + static List<ClsPersona> ObtenerPersonas()
+ + static List<ClsDepartamento> ObtenerDepartamentos()
+
+VM:
+ ClsEditarPersonaVM: ClsPersona
+  + List<ClsDepartamentos> departamentos {get;}
+  + ClsEditarPersonaVM(){
+     departamentos = ClsListados.ObtenerDepartamentos()	
+    }
