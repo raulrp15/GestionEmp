@@ -1,12 +1,8 @@
-using Ejercicio04.Models;
-using Ejercicio04.Models.DAL;
-using Ejercicio04.Models.ENT;
-using Ejercicio04.Models.VM;
+using Ejercicio01.Models;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Diagnostics;
 
-namespace Ejercicio04.Controllers
+namespace Ejercicio01.Controllers
 {
     public class HomeController : Controller
     {
@@ -22,6 +18,11 @@ namespace Ejercicio04.Controllers
             return View();
         }
 
+        public IActionResult Saludo()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();
@@ -31,20 +32,6 @@ namespace Ejercicio04.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
-
-        public IActionResult EditarPersona()
-        {
-            Random random = new Random();
-            ClsPersona persona = new ClsPersona();
-            persona = ClsListado.GetPersonas()[random.Next(ClsListado.GetPersonas().Count)];
-            ClsEditarPersonaVM lista = new();
-            lista.Nombre = persona.Nombre;
-            lista.Apellidos = persona.Apellidos;
-            lista.Edad = persona.Edad;
-            lista.IdDepartamento = persona.IdDepartamento;
-
-            return View(lista);
         }
     }
 }
