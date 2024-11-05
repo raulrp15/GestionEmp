@@ -1,8 +1,8 @@
-using Ejercicio01.Models;
+using Ejercicio03.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace Ejercicio01.Controllers
+namespace Ejercicio03.Controllers
 {
     public class HomeController : Controller
     {
@@ -13,19 +13,23 @@ namespace Ejercicio01.Controllers
             _logger = logger;
         }
 
-        [HttpGet]
         public IActionResult Index()
         {
             return View();
         }
 
-        public IActionResult Saludo(string Nombre)
+        public IActionResult Privacy()
         {
-            ViewBag.Nombre = Nombre;
             return View();
         }
 
-        public IActionResult Privacy()
+        [HttpPost]
+        public IActionResult Editar()
+        {
+            return View();
+        }
+
+        public IActionResult PersonaModificada()
         {
             return View();
         }
