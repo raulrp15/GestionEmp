@@ -1,3 +1,4 @@
+using Capa_DAL.Conexion;
 using EjercicioAzure.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
@@ -16,6 +17,16 @@ namespace EjercicioAzure.Controllers
         public IActionResult Index()
         {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult Conexion()
+        {
+            ClsConexion conexion = new ClsConexion();
+
+            ViewBag.EstadoConexion = conexion.ConectarBD();
+
+            return View("Index");
         }
 
         public IActionResult Privacy()

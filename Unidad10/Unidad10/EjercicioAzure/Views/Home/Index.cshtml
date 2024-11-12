@@ -3,6 +3,13 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h2>Estado de la Conexión a la Base de Datos</h2>
+
+    <form method="post" action="@Url.Action("Conexion", "Home")">
+        <button type="submit" class="btn btn-primary">Conectar</button>
+    </form>
 </div>
+@if (ViewBag.EstadoConexion != null)
+{
+    <p><strong>Estado de la conexion:</strong> @ViewBag.EstadoConexion</p>
+}
