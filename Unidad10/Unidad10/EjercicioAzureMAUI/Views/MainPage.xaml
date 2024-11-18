@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vmodel="clr-namespace:EjercicioAzureMAUI.ViewModels"
+             x:Class="EjercicioAzureMAUI.MainPage">
+
+    <ContentPage.BindingContext>
+        <vmodel:ConectarVM/>
+    </ContentPage.BindingContext>
+    
+    <VerticalStackLayout Spacing="10">
+        <Button Text="Conectar" Command="{Binding ConectarCommand}"/>
+        <Button Text="Desconectar" Command="{Binding DesconectarCommand}"/>
+        <Label Text="{Binding Estado}"/>
+    </VerticalStackLayout>
+
+</ContentPage>

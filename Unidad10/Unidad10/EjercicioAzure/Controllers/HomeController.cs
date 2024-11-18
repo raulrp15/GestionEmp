@@ -1,4 +1,4 @@
-using Capa_DAL.Conexion;
+using CapaDAL.Conexion;
 using EjercicioAzure.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
@@ -24,7 +24,21 @@ namespace EjercicioAzure.Controllers
         {
             ClsConexion conexion = new ClsConexion();
 
-            ViewBag.EstadoConexion = conexion.ConectarBD();
+            try
+            {
+                conexion.ConectarBD();
+                ViewBag.EstadoConexion = "Conectado";
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                ViewBag.EstadoConexion = "Error";
+            }
+            finally
+            {
+                conexion.DesconectarBD();
+            }
+            
 
             return View("Index");
         }

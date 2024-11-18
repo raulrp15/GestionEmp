@@ -5,7 +5,9 @@ VisualStudioVersion = 17.11.35303.130
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EjercicioAzure", "EjercicioAzure\EjercicioAzure.csproj", "{8626A75A-D240-4DF2-A55A-21AC90343665}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Capa DAL", "Capa DAL\Capa DAL.csproj", "{BE2A4C4E-7508-4D0A-9B44-AD55A6CB94E4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CapaDAL", "Capa DAL\CapaDAL.csproj", "{BE2A4C4E-7508-4D0A-9B44-AD55A6CB94E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EjercicioAzureMAUI", "EjercicioAzureMAUI\EjercicioAzureMAUI.csproj", "{94B03617-A199-4DCD-9C17-D530695013B2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,12 @@ Global
 		{BE2A4C4E-7508-4D0A-9B44-AD55A6CB94E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE2A4C4E-7508-4D0A-9B44-AD55A6CB94E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE2A4C4E-7508-4D0A-9B44-AD55A6CB94E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94B03617-A199-4DCD-9C17-D530695013B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94B03617-A199-4DCD-9C17-D530695013B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94B03617-A199-4DCD-9C17-D530695013B2}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{94B03617-A199-4DCD-9C17-D530695013B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94B03617-A199-4DCD-9C17-D530695013B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94B03617-A199-4DCD-9C17-D530695013B2}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
