@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CapaDAL", "Capa DAL\CapaDAL
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EjercicioAzureMAUI", "EjercicioAzureMAUI\EjercicioAzureMAUI.csproj", "{94B03617-A199-4DCD-9C17-D530695013B2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapaENT", "CapaENT\CapaENT.csproj", "{03D7A3C2-69BF-4D40-BEC8-09BB12831D4E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CapaENT", "CapaENT\CapaENT.csproj", "{03D7A3C2-69BF-4D40-BEC8-09BB12831D4E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EjercicioASP2", "EjercicioASP2\EjercicioASP2.csproj", "{868E02C8-6787-4962-8DF9-9B75CEFEE5C6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +37,10 @@ Global
 		{03D7A3C2-69BF-4D40-BEC8-09BB12831D4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{03D7A3C2-69BF-4D40-BEC8-09BB12831D4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{03D7A3C2-69BF-4D40-BEC8-09BB12831D4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{868E02C8-6787-4962-8DF9-9B75CEFEE5C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{868E02C8-6787-4962-8DF9-9B75CEFEE5C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{868E02C8-6787-4962-8DF9-9B75CEFEE5C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{868E02C8-6787-4962-8DF9-9B75CEFEE5C6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

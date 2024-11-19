@@ -1,4 +1,5 @@
-﻿using CapaENT;
+﻿using CapaDAL.Conexion;
+using CapaENT;
 using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
@@ -11,9 +12,9 @@ namespace Capa_DAL
     public class ClsListadoDAL
     {
         /// <summary>
-        /// 
+        /// Funcion que crea una lista y le inserta las personas de la tabla Personas de la base de datos
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Lista de personas</returns>
         public static List<ClsPersona> GetListadoPersonasDAL()
         {
             SqlConnection miConexion = new SqlConnection();
@@ -78,6 +79,21 @@ namespace Capa_DAL
                 throw ex;
             }
             return listadoPersonas;
+        }
+
+        public static ClsPersona GetPersonasPorIdDAL(int id)
+        {
+            SqlConnection miConexion = new SqlConnection();
+            SqlCommand miCommand = new SqlCommand();
+            SqlDataReader miLector;
+            ClsPersona persona;
+
+            miConexion.ConnectionString
+            = ("server=pajaritoscity.database.windows.net;database=BDRaulRopa;uid=usuario;pwd=LaCampana123;trustServerCertificate=true;");
+
+
+
+            return persona;
         }
     }
 }
