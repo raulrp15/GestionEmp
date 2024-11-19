@@ -10,7 +10,11 @@ namespace Capa_DAL
 {
     public class ClsListadoDAL
     {
-        public List<ClsPersona> GetListadoPersonasDAL()
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public static List<ClsPersona> GetListadoPersonasDAL()
         {
             SqlConnection miConexion = new SqlConnection();
 

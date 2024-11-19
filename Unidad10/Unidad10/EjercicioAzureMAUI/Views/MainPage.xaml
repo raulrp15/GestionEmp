@@ -7,11 +7,30 @@
     <ContentPage.BindingContext>
         <vmodel:ConectarVM/>
     </ContentPage.BindingContext>
-    
-    <VerticalStackLayout Spacing="10">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="10">
         <Button Text="Conectar" Command="{Binding ConectarCommand}"/>
         <Button Text="Desconectar" Command="{Binding DesconectarCommand}"/>
         <Label Text="{Binding Estado}"/>
-    </VerticalStackLayout>
-
+        
+            <ListView ItemsSource="{Binding Listado}" IsVisible="{Binding ConectarCommand.CanExecute}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <HorizontalStackLayout Spacing="3">
+                                <Image Source="{Binding Foto}" HeightRequest="50" WidthRequest="50"/>
+                                <Label Text="{Binding Nombre}"/>
+                                <Label Text="{Binding Apellidos}"/>
+                                <Label Text="{Binding FechaNac}"/>
+                                <Label Text="{Binding Direccion}"/>
+                                <Label Text="{Binding IdDept}"/>
+                            </HorizontalStackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

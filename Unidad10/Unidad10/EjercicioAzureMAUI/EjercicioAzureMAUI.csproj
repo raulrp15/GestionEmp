@@ -64,6 +64,7 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\Capa DAL\CapaDAL.csproj" />
+	  <ProjectReference Include="..\CapaENT\CapaENT.csproj" />
 	</ItemGroup>
 
 </Project>

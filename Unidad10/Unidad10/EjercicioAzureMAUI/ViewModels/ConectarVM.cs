@@ -2,7 +2,9 @@
 using CapaDAL.Conexion;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-
+using CapaDAL;
+using CapaENT;
+using Capa_DAL;
 namespace EjercicioAzureMAUI.ViewModels
 {
     public class ConectarVM : INotifyPropertyChanged
@@ -11,9 +13,11 @@ namespace EjercicioAzureMAUI.ViewModels
         private string estado = "";
         private ClsConexion conexion = new ClsConexion();
         private bool conectado = false;
+        private List<ClsPersona> listado;
         #endregion
 
         #region Propiedades
+        public List<ClsPersona> Listado { get { return listado; } }
         public string Estado { get { return estado; } }
         public DelegateCommand ConectarCommand { get; }
         public DelegateCommand DesconectarCommand { get; }
@@ -38,6 +42,7 @@ namespace EjercicioAzureMAUI.ViewModels
                 conexion.ConectarBD();
                 estado = "Conexion Exitosa";
                 conectado = true;
+                listado = ClsListadoDAL.GetListadoPersonasDAL();
             }
             catch (Exception ex)
             {
@@ -46,6 +51,7 @@ namespace EjercicioAzureMAUI.ViewModels
             finally
             {
                 NotifyPropertyChanged("Estado");
+                NotifyPropertyChanged("Listado");
             }
         }
 
@@ -59,6 +65,7 @@ namespace EjercicioAzureMAUI.ViewModels
                 conexion.DesconectarBD();
                 estado = "Desconexion exitosa";
                 conectado = false;
+                listado = null;
             }
             catch (Exception ex)
             {
@@ -67,6 +74,7 @@ namespace EjercicioAzureMAUI.ViewModels
             finally
             {
                 NotifyPropertyChanged("Estado");
+                NotifyPropertyChanged("Listado");
             }
         }
         #endregion
