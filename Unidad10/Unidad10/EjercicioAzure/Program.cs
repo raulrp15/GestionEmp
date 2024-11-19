@@ -1,5 +1,9 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using EjercicioAzure.Data;
 var builder = WebApplication.CreateBuilder(args);
-
+builder.Services.AddDbContext<EjercicioAzureContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("EjercicioAzureContext") ?? throw new InvalidOperationException("Connection string 'EjercicioAzureContext' not found.")));
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
