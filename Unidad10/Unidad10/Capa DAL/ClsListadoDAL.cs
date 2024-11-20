@@ -84,14 +84,60 @@ namespace Capa_DAL
         public static ClsPersona GetPersonasPorIdDAL(int id)
         {
             SqlConnection miConexion = new SqlConnection();
-            SqlCommand miCommand = new SqlCommand();
+            SqlCommand miComando = new SqlCommand();
             SqlDataReader miLector;
-            ClsPersona persona;
+            ClsPersona persona = null;
 
             miConexion.ConnectionString
             = ("server=pajaritoscity.database.windows.net;database=BDRaulRopa;uid=usuario;pwd=LaCampana123;trustServerCertificate=true;");
 
+            try
+            {
+                miConexion.Open();
 
+                miComando.CommandText = "SELECT * FROM Personas";
+
+                miComando.Connection = miConexion;
+
+                miLector = miComando.ExecuteReader();
+
+                if (miLector.HasRows)
+                {
+                    while (miLector.Read())
+                    {
+                        persona = new ClsPersona();
+                        persona.Id = (int)miLector["ID"];
+                        persona.Nombre = (string)miLector["Nombre"];
+                        persona.Apellidos = (string)miLector["Apellidos"];
+                        if (miLector["Telefono"] != System.DBNull.Value)
+                        {
+                            persona.Telefono = (string)miLector["Telefono"];
+                        }
+                        if (miLector["Direccion"] != System.DBNull.Value)
+                        {
+                            persona.Direccion = (string)miLector["Direccion"];
+                        }
+                        if (miLector["Foto"] != System.DBNull.Value)
+                        {
+                            persona.Foto = (string)miLector["Foto"];
+                        }
+                        if (miLector["FechaNacimiento"] != System.DBNull.Value)
+                        {
+                            persona.FechaNac = (DateTime)miLector["FechaNacimiento"];
+                        }
+                        if (miLector["IdDepartamento"] != System.DBNull.Value)
+                        {
+                            persona.IdDept = (int)miLector["IDDepartamento"];
+                        }
+                    }
+                }
+                miLector.Close();
+                miConexion.Close();
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
 
             return persona;
         }

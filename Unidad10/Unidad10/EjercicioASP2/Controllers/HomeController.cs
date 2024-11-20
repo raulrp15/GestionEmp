@@ -20,6 +20,11 @@ namespace EjercicioASP2.Controllers
             return View();
         }
 
+        public IActionResult Detalles()
+        {
+            return View();
+        }
+
         [HttpPost]
         public IActionResult Conectar()
         {
