@@ -1,3 +1,23 @@
+class Marca
+{
+    constructor(id, nombre)
+    {
+        this.id = id;
+        this.nombre = nombre;
+    }
+}
+
+class Modelo
+{
+    constructor(id, nombre, marca)
+    {
+        this.id = id;
+        this.nombre = nombre;
+        this.marca = marca;
+    }
+}
+window.onload = listadoMarcas;
+
 let listMarcas = [
     new Marca(1, "Toyota"),
     new Marca(2, "Honda"),
@@ -28,7 +48,23 @@ let listModelos = [
     new Modelo(15, "Camaro", 8),
 ];
 
-function showModels()
-{
-    document.getElementsByTagName("select")[0].value;
+function listadoMarcas() {
+    const select = document.getElementById("marcas");
+    const option = listMarcas
+        .map((marca) => `<option value="${marca.id}">${marca.nombre}</option>`)
+        .join("");
+    select.innerHTML += option;
+}
+
+function showModels() {
+    const marca = parseInt(document.getElementById("marcas").value); 
+    const listaModelos = document.getElementById("modelos");
+    listaModelos.innerHTML = ""; 
+
+    const modelos = listModelos
+        .filter((modelo) => modelo.marca === marca)
+        .map((modelo) => `<li>${modelo.nombre}</li>`)
+        .join("");
+
+    listaModelos.innerHTML = modelos;
 }
