@@ -14,7 +14,7 @@ function pedirDatos()
         document.getElementById("lista").innerHTML += `<li>${pokemon.forms[0].name}</li>`
         
     }};
-
+    
     miLlamada.send();
 
 }
