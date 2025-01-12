@@ -16,17 +16,29 @@ function mostrarPokemon() {
 }
 
 function mostrarDatos(personas){
-    console.log(personas);
     document.getElementById("calta").innerHTML =
     personas.map((persona) =>
-        `<li>${persona.nombre} <img src="${persona.foto}" width="100px"/> <i class="fa fa-trash-o" onclick="eliminar(${persona.id})"><i></li>`).join("");
+        `<li>${persona.nombre} <img src="${persona.foto}" width="100px"/> <i class="fa fa-trash-o" onclick="eliminarPersona(${persona.id})"></i></li>`).join("");
 }
 
-function eliminar(id) {
-    var miLlamada = new XMLHttpRequest();
-    miLlamada.open("DELETE", "https://raulraulcrudapi.azurewebsites.net/api/personaapi/" + id);
-    if (miLlamada.readyState == 4 && miLlamada.status == 200) {
-        mostrarPokemon();
-    }
+function eliminarPersona(id) {
+
+    if(window.confirm("¿Desea eliminar la persona?")){
+        var miLlamada = new XMLHttpRequest();
+
+    miLlamada.open("DELETE", url + id);
+
+    miLlamada.onreadystatechange = function () {
+        if (miLlamada.readyState < 4) {
+            // aquí se puede poner una imagen de un reloj o un texto “Cargando”
+        } else if (miLlamada.readyState == 4 && miLlamada.status == 200) {
+            window.alert("Se ha eliminado la persona");
+            mostrarPokemon();
+        }
+    };
     miLlamada.send();
+    }else{
+        window.alert("No se ha eliminado la persona");
+    }
+    
 }
