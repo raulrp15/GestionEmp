@@ -44,5 +44,12 @@ ul{
 }
 
 li{
-    font-size: medium;
+    font-size: xx-large;
+    vertical-align: middle;
+}
+
+
+
+i{
+    color: red;
 }
