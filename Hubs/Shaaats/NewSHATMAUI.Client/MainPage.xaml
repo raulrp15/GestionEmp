@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NewSHATMAUI.Client.MainPage">
+
+    <VerticalStackLayout>
+        <HorizontalStackLayout>
+            <Label Text="User: "/>
+            <Entry x:Name="User"/>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout>
+            <Label Text="Message: "/>
+            <Entry x:Name="Message"/>
+        </HorizontalStackLayout>
+
+        <Button Text="Send" Clicked="Send"/>
+        <Label x:Name="mensajeCompleto"/>
+        <!--<ScrollView>
+            <ListView>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <HorizontalStackLayout>
+                                <Label x:Name="mensajeCompleto" Text=""/>
+                            </HorizontalStackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollView>-->
+    </VerticalStackLayout>
+
+</ContentPage>

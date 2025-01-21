@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.ResponseCompression;
-using NewSHAT.Client.Pages;
 using NewSHAT.Components;
 using NewSHAT.Hubs;
 
