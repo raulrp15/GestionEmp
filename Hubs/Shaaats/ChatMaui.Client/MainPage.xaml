@@ -1,32 +1,35 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ChatMaui.Client.MainPage">
+             x:Class="ChatMaui.Client.MainPage"
+             BackgroundColor="LightGrey">
 
     <VerticalStackLayout>
-        <HorizontalStackLayout>
-            <Label Text="User: "/>
-            <Entry x:Name="User"/>
+        <HorizontalStackLayout Spacing="5" HorizontalOptions="Center">
+            <Label Text="User: " TextColor="Black"/>
+            <Entry x:Name="User" MinimumWidthRequest="100" TextColor="Black"/>
         </HorizontalStackLayout>
-        <HorizontalStackLayout>
-            <Label Text="Message: "/>
-            <Entry x:Name="Message"/>
+        <HorizontalStackLayout Spacing="5" HorizontalOptions="Center">
+            <Label Text="Message: " TextColor="Black"/>
+            <Entry x:Name="Message" MinimumWidthRequest="200" TextColor="Black"/>
         </HorizontalStackLayout>
 
-        <Button Text="Send" Clicked="Send"/>
-        <ListView x:Name="listaMensajes" ItemsSource="{Binding Lista}">
+        <Button Text="Send" Clicked="Send" MaximumWidthRequest="100" HorizontalOptions="Center"/>
+        <ScrollView HorizontalOptions="Start" Margin="10">
+            <ListView x:Name="listaMensajes" ItemsSource="{Binding Lista}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <HorizontalStackLayout>
-                            <Label Text="{Binding Usuario}"/>
-                            <Label Text=" : "/>
-                            <Label Text="{Binding Mensaje}"/>
-                        </HorizontalStackLayout>
+                                <Label Text="{Binding Usuario}" FontAttributes="Bold" FontSize="20" TextColor="Black"/>
+                                <Label Text=" : " FontAttributes="Bold" FontSize="20" TextColor="Black"/>
+                                <Label Text="{Binding Mensaje}" FontSize="15" TextColor="Black"/>
+                            </HorizontalStackLayout>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+        </ScrollView>
     </VerticalStackLayout>
 
 </ContentPage>

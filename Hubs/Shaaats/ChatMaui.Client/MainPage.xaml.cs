@@ -16,11 +16,11 @@ namespace ChatMaui.Client
             BindingContext = this;
             listaMensajes.ItemsSource = Lista;
             connection = new HubConnectionBuilder()
-                .WithUrl("http://localhost:5111/chathub").WithAutomaticReconnect().Build();
+                .WithUrl("http://localhost:5111/chathub").Build();
 
             connection.On<MensajeUsuario>("ReceivedMessage", (m) =>
             {
-                Lista.Add(m);
+                Dispatcher.Dispatch(() => Lista.Add(m));
             });
             Task.Run(() =>
             {
