@@ -6,7 +6,7 @@ namespace NewSHAT.Hubs
     {
         public async Task SendMessage(MensajeUsuario mensajeUsuario)
         {
-            await Clients.All.SendAsync("ReceiveMessage", mensajeUsuario);
+            await Clients.All.SendAsync("ReceivedMessage", mensajeUsuario);
         }
     }
 }
