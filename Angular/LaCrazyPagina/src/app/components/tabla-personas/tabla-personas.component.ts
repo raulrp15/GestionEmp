@@ -8,10 +8,8 @@ import { Router, RouterLink, RouterLinkActive } from '@angular/router';
   styleUrl: './tabla-personas.component.css'
 })
 export class TablaPersonasComponent {
-  constructor(route:Router){
-    
-  }
-   Listado(){
-    
+  constructor(private router: Router){ }
+   Listado():void{
+    this.router.navigate(['/listado']);
   }
 }
