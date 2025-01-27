@@ -18,15 +18,17 @@ namespace ChatMaui.Client
             connection = new HubConnectionBuilder()
                 .WithUrl("http://localhost:5111/chathub").Build();
 
-            connection.On<MensajeUsuario>("ReceivedMessage", (m) =>
-            {
-                Dispatcher.Dispatch(() => Lista.Add(m));
-            });
+            connection.On<MensajeUsuario>("ReceivedMessage", anyadirMensaje);
             Task.Run(() =>
             {
                 Dispatcher.Dispatch(async () =>
                 await connection.StartAsync());
             });
+        }
+
+        private void anyadirMensaje(MensajeUsuario m)
+        {
+            Dispatcher.Dispatch(() => Lista.Add(m));
         }
 
         private async void Send(object sender, EventArgs e)
