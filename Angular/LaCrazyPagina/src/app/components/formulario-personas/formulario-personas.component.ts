@@ -3,10 +3,13 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 import { ReactiveFormsModule, Validators } from '@angular/forms';
 import { FormGroup, FormControl } from '@angular/forms';
 import { NgIf } from '@angular/common';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatCardModule } from '@angular/material/card';
+import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'app-formulario-personas',
-  imports: [RouterLink, RouterLinkActive, ReactiveFormsModule, NgIf],
+  imports: [RouterLink, RouterLinkActive, ReactiveFormsModule, NgIf, MatFormFieldModule, MatCardModule, MatInputModule],
   templateUrl: './formulario-personas.component.html',
   styleUrl: './formulario-personas.component.css'
 })
