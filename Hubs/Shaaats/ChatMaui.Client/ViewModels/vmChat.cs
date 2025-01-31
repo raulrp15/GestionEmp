@@ -16,6 +16,7 @@ namespace ChatMaui.Client.ViewModels
         private string msg;
         private ObservableCollection<MensajeUsuario> msgsList;
         private DelegateCommand sendCommand;
+        private string grupoActual = "";
         #endregion
 
         #region Propiedades
@@ -38,7 +39,10 @@ namespace ChatMaui.Client.ViewModels
 
             connection.On<MensajeUsuario>("ReceivedMessageGroup", (m) =>
             {
-                MainThread.InvokeOnMainThreadAsync(() => msgsList.Add(m));
+                MainThread.InvokeOnMainThreadAsync(() => { 
+                    msgsList.Add(m);
+                    NotifyPropertyChanged(nameof(MsgsList));
+                });
                 NotifyPropertyChanged(nameof(MsgsList));
             });
 
@@ -70,8 +74,20 @@ namespace ChatMaui.Client.ViewModels
             mUser.Mensaje = msg;
             mUser.Grupo = group;
 
-            await connection.InvokeCoreAsync("JoinGroup", args: new[] { mUser });
+            if (!grupoActual.Equals(mUser.Grupo)) 
+            {
+                leaveGroup();
+            }
+            await connection.InvokeCoreAsync("JoinGroup", args: new[] { mUser.Grupo });
+            grupoActual = mUser.Grupo;
             await connection.InvokeCoreAsync("SendGroupMessage", args: new[] {mUser});
+        }
+
+        private async void leaveGroup()
+        {
+            msgsList.Clear();
+            await connection.InvokeCoreAsync("LeaveGroup", args: new[] { grupoActual });
+            grupoActual = "";
         }
 
         // Funcion que comprueba que si todos los campos estan rellenos se habilita el boton de enviar

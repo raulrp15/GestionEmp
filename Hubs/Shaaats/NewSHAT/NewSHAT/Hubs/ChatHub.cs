@@ -12,14 +12,18 @@ namespace NewSHAT.Hubs
         #endregion
 
         #region Grupos
-        public Task JoinGroup(MensajeUsuario mensajeUsuario)
+        public Task JoinGroup(string grupo)
         {
-            return Groups.AddToGroupAsync(mensajeUsuario.Usuario, mensajeUsuario.Grupo);
+            return Groups.AddToGroupAsync(Context.ConnectionId, grupo);
         }
 
         public async Task SendGroupMessage(MensajeUsuario m)
         {
             await Clients.Group(m.Grupo).SendAsync("ReceivedMessageGroup", m);
+        }
+        public Task LeaveGroup(string g)
+        {
+            return Groups.RemoveFromGroupAsync(Context.ConnectionId, g);
         }
         #endregion
     }
