@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
-import { TablaPersonasComponent } from './components/tabla-personas/tabla-personas.component';
+import { TablaApiPersonasComponent } from "./components/tabla-api-personas/tabla-api-personas.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, TablaPersonasComponent],
+  imports: [RouterOutlet, TablaApiPersonasComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
