@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&family=Playwrite+US+Modern:wght@100..400&display=swap');
+
+html, body { height: 100%;}
+body { margin: 0; font-family: Gabarito, "Helvetica Neue", sans-serif; background-color: #e9ffdf;}
+
+h1{
+    text-align: center;
+    font-size: 40px;
+}
+
+/* Estilo para la tabla*/
+table{
+    width: auto;
+    border-collapse: collapse;
+    margin: 0 auto;
+    font-size: 20px;
+}
+
+table th{
+    background-color: #dbedd4;
+    text-align: left;
+    padding: 12px;
+    white-space: nowrap;
+}
+
+#id{
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+#fecha{
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+tbody td {
+    padding: 12px;
+    white-space: nowrap;
+}
+
+tr:hover{
+    background-color: #dbedd4;
+    border-radius: 20px;
+}
+
+/* Estilo para las opciones */
+.mat-bottom-sheet-container {
+    background-color: #dbedd4 !important;
+}
+
+span{
+    color: black !important;
+}
+
+#editar:hover{
+    background-color: #decedf !important;
+}
+
+#eliminar:hover{
+    background-color: #dbaaaa !important;
+}
+
+/* Estilo para el dialogo */

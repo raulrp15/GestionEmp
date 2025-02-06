@@ -1,0 +1,8 @@
+<h1 mat-dialog-title [style]="{fontWeight: 'bold'}">¿Estás seguro?</h1>
+  <mat-dialog-content [style]="{fontSize: '15px'}">
+    <p>¿Quieres eliminar a esta persona de la base de datos?</p>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button (click)="onCancel()" [style]="{marginRight: '10px', backgroundColor: 'transparent', color: 'white'}">Cancelar</button>
+    <button mat-button (click)="onConfirm()" [style]="{marginRight: '10px', backgroundColor: 'transparent', color: 'white'}">Eliminar</button>
+  </mat-dialog-actions>

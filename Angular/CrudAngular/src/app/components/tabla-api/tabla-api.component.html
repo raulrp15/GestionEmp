@@ -1,0 +1,20 @@
+<h1>Listado de Personas</h1>
+
+<table>
+    <thead>
+        <th id="id">Id</th>
+        <th>Nombre</th>
+        <th>Apellidos</th>
+        <th id="fecha">Fecha de Nacimiento</th>
+    </thead>
+    
+    <tbody>
+        <tr *ngFor="let persona of listadoPersonas.data" mat-raised-button (click)="openBottomSheet(persona.id)">
+            <td id="id">{{persona.id}}</td>
+            <td>{{persona.nombre}}</td>
+            <td>{{persona.apellidos}}</td>
+            <td id="fecha">{{persona.fechaNacimiento | date: "dd/MM/YYYY"}}</td>
+            <!-- <td><mat-icon aria-hidden="false" aria-label="Eliminar" fontIcon="delete_outlined"></mat-icon></td> -->
+        </tr>
+    </tbody>
+</table>
