@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { Persona } from '../interfaces/persona';
+import { ObserversModule } from '@angular/cdk/observers';
 
 @Injectable(
   {
@@ -23,5 +24,11 @@ export class PersonasService
   }
   delPersonas(id:number){
     return this.http.delete(this.urlWebAPI+"/"+id);
+  }
+  insPersona(persona:Persona): Observable<number>{
+    return this.http.post<number>(this.urlWebAPI,persona);
+  }
+  updPersona(persona:Persona): Observable<number>{
+    return this.http.put<number>(this.urlWebAPI+"/"+persona.id,persona);
   }
 }

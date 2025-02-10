@@ -1,35 +1,27 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Persona } from '../../interfaces/persona';
 import { PersonasService } from '../../services/persona.service';
 import { DatePipe, NgFor } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatBottomSheet, MatBottomSheetRef } from '@angular/material/bottom-sheet';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
-import { MatTableDataSource } from '@angular/material/table';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { ViewChild } from '@angular/core';
-import {
-  MAT_DIALOG_DATA,
-  MatDialog,
-  MatDialogActions,
-  MatDialogClose,
-  MatDialogContent,
-  MatDialogRef,
-  MatDialogTitle,
-} from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogActions, MatDialogClose, MatDialogContent, MatDialogRef, MatDialogTitle, MatDialogModule } from '@angular/material/dialog';
 import { MatListModule } from '@angular/material/list';
 
-
+//#region Tabla
 @Component({
   selector: 'app-tabla-api',
   standalone: true,
-  imports: [NgFor, DatePipe, MatIconModule, MatPaginatorModule],
+  imports: [NgFor, DatePipe, MatIconModule, MatPaginatorModule, MatTableModule],
   templateUrl: './tabla-api.component.html',
   styleUrl: './tabla-api.component.css'
 })
-export class TablaApiComponent implements OnInit 
+export class TablaApiComponent implements OnInit, AfterViewInit 
 {
   listadoPersonas = new MatTableDataSource<Persona>([]);
-  
+  displayedColumns: string[] = ['id', 'nombre', 'apellidos', 'fechaNacimiento'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(
@@ -67,8 +59,8 @@ export class TablaApiComponent implements OnInit
 
   eliminarPersona(id: number): void {
     this.personasServicio.delPersonas(id).subscribe({
-      next: () => {
-        alert('Persona eliminada correctamente');
+      next: (response) => {
+        alert(response + " filas afectadas");
         this.obtenerPersonas();  // Recarga la lista de personas
       },
       error: () => {
@@ -77,7 +69,9 @@ export class TablaApiComponent implements OnInit
     });
   }
 }
+//#endregion
 
+//#region Opciones
 @Component({
   selector: 'app-options',
   imports: [MatListModule],
@@ -108,6 +102,9 @@ export class OptionsComponent {
     });
   }
 }
+//#endregion
+
+//#region Dialogo Delete
 @Component({
   selector: 'app-dialogo',
   imports: [
@@ -128,4 +125,4 @@ export class DialogoComponent {
     this.dialogRef.close(false);
   }
 }
-
+//#endregion

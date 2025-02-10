@@ -1,20 +1,32 @@
 <h1>Listado de Personas</h1>
 
-<table>
-    <thead>
-        <th id="id">Id</th>
-        <th>Nombre</th>
-        <th>Apellidos</th>
-        <th id="fecha">Fecha de Nacimiento</th>
-    </thead>
-    
-    <tbody>
-        <tr *ngFor="let persona of listadoPersonas.data" mat-raised-button (click)="openBottomSheet(persona.id)">
-            <td id="id">{{persona.id}}</td>
-            <td>{{persona.nombre}}</td>
-            <td>{{persona.apellidos}}</td>
-            <td id="fecha">{{persona.fechaNacimiento | date: "dd/MM/YYYY"}}</td>
-            <!-- <td><mat-icon aria-hidden="false" aria-label="Eliminar" fontIcon="delete_outlined"></mat-icon></td> -->
-        </tr>
-    </tbody>
+<table mat-table [dataSource]="listadoPersonas">
+
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> Id </th>
+      <td mat-cell *matCellDef="let persona"> {{persona.id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="nombre">
+      <th mat-header-cell *matHeaderCellDef> Nombre </th>
+      <td mat-cell *matCellDef="let persona"> {{persona.nombre}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="apellidos">
+      <th mat-header-cell *matHeaderCellDef> Apellidos </th>
+      <td mat-cell *matCellDef="let persona"> {{persona.apellidos}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="fechaNacimiento">
+      <th mat-header-cell *matHeaderCellDef> Fecha de Nacimiento </th>
+      <td mat-cell *matCellDef="let persona"> {{persona.fechaNacimiento}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="openBottomSheet(row.id)"></tr>
 </table>
+<mat-icon fontIcon="delete"></mat-icon>
+<mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                showFirstLastButtons
+                aria-label="Select page of periodic elements">
+</mat-paginator>
